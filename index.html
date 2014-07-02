@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" ng-app="CRYPTO-APP">
+<head>
+	<meta charset="UTF-8">
+	<title>AES</title>
+	<link rel=stylesheet href="css/app.css">
+	<link rel=stylesheet href="css/bootstrap.css">
+	<link rel=stylesheet href="css/glyphicons.css">
+</head>
+<body ng-cloak>
+	
+	<div ng-controller="mainCtrl">
+
+		<div class="container-fluid">
+			<h2 class="bold">AES</h2>
+
+			<!-- open file -->
+			<div class="row btm-spc">
+				<div class="col-xs-12 form-inline">
+
+					<div open-file class="fileLabelWrapper">
+						<input id="fileLabel" class="form-control input-sm" placeholder="Choose File" disabled>
+					</div>
+
+					<div class="fileUpload btn-sm btn-primary">
+					    <span class="icon-folder-open"><!--open icon--></span>
+					    <input id="uploadBtn" class="uploadBtn" type="file" fileread="input.data">
+					</div>
+				</div>
+			</div>
+
+			<div class="row btm-spc">
+				<!-- status message -->
+				<div class="col-xs-12">
+					{{message.status}}
+				</div>
+				<div class="col-xs-12">
+					<form class="form-inline">
+						<!-- decrypt -->
+						<input class="form-control input-sm" type="password" placeholder="DECRYPT KEY" ng-model="input.decryptKey">
+						<button class="btn btn-primary btn-sm" ng-click="decrypt()"><span class="icon-unlock"><!--unlock icon--></span></button>
+						<div class="spacing"></div>
+
+						<!-- encrypt -->
+						<input class="form-control input-sm" type="password" placeholder="ENCRYPT KEY" ng-model="input.encryptKey">
+						<input class="form-control input-sm" type="password" placeholder="RE-ENTER KEY" ng-model="input.encryptKeyRepeat">
+						<encrypt-btn></encrypt-btn>
+					</form>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12">
+					<textarea class="form-control editbox" type="text" spellcheck="false" placeholder="" rows="0" ng-model="input.data"></textarea>
+				</div>
+			</div>
+
+		</div>
+
+
+	</div>
+
+	<script src="js/core/angular.js"></script>
+	<script src="js/aes.js"></script>
+	<script src="js/crypt.js"></script>
+</body>
+</html>
