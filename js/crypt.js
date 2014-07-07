@@ -1,3 +1,4 @@
+'use strict';
 
 angular
 	.module('CRYPTO-APP', [])
@@ -98,8 +99,8 @@ angular
 						element.attr('href', '');
 					} else {
 
-						var encryted = cs.encrypt(scope.input.data, scope.input.encryptKey);
-						var blob = new Blob([encryted], {type: "text/plain"});
+						var encrypted = cs.encrypt(scope.input.data, scope.input.encryptKey);
+						var blob = new Blob([encrypted], {type: "text/plain"});
 						var url = URL.createObjectURL(blob);
 
 						element.attr('download', 'encrypted.txt');
